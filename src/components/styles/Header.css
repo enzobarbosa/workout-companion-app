@@ -1,0 +1,47 @@
+
+/* copié/collé le 19/11 depuis Header.css depuis food-delivery-app */
+
+.menu-container {
+    /* position: fixed; si activé => contenu de page sous le header */
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333333;
+  }
+  
+  .logo {
+    width: 200px;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-right: 50px;
+  }
+  
+  .menu-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+  }
+  
+  .menu-item {
+    margin: 15px;
+  }
+  
+  .menu-item a {
+    color: white;
+    text-decoration: none;
+    font-size: large;
+  }
+  
+  .menu-item a:hover {
+    color: gray;
+  }
