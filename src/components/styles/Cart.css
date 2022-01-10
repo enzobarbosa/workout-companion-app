@@ -1,0 +1,14 @@
+.cart-container {
+    position: absolute;
+    min-height: 300px;
+    min-width: 250px;
+    background-color: crimson;
+}
+
+.item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}

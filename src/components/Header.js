@@ -19,6 +19,9 @@ class Header extends React.Component {
                         <Link to='/Exercices'>Exercices</Link>
                     </li>
                     <li className='menu-item'>
+                        <Link to='/Muscles'>Muscles</Link>
+                    </li>
+                    <li className='menu-item'>
                         <Link to='/Auth'>Auth</Link>
                     </li>
                 </ul>
