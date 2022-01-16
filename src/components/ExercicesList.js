@@ -9,9 +9,9 @@ function ExercicesList ({ exercices }) {
     )
   } return (
     <div className='list-container'>
-      {exercices.map(dish => {
+      {exercices.map(exercice => {
         return (
-          <ExercicesListItem key={exercice._id} exercice={exercice} />
+        <ExercicesListItem key={exercice._id} exercice={exercice} />
         )
       })}
     </div>

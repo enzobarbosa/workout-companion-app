@@ -14,8 +14,7 @@ function ExercicesListItem ({ exercice }) {
     <div className='exercice'>
       <h2>{exercice.name}</h2>
       <p>{exercice.description}</p>
-      <p>{exercice.price}€</p>
-      <button onClick={addToCart}>Ajouter au panier</button>
+      <button onClick={addToCart}>Ajouter à l'entrainement</button>
     </div>
   )
 }

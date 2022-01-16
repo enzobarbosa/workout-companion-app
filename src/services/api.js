@@ -69,7 +69,7 @@ const getProfile = async () => {
 
 const createWorkout = async (user, cart) => {
   try {
-    // On recompose un tableau contenant les ID des plats du panier pour respecter le format
+    // On recompose un tableau contenant les ID des exercices de l'entraînement pour respecter le format
     const _cart = cart.map(item => item.muscle._id)
     const response = await api.post('/workout', { user, cart: _cart })
     return response.data

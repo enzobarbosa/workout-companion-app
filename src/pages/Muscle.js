@@ -1,7 +1,7 @@
  import React from 'react'
  import { useParams } from 'react-router-dom'
  import { useEffect, useState } from 'react/cjs/react.development'
- import ExercicesList from '../composants/ExercicesList'
+ import ExercicesList from '../components/ExercicesList'
  import { getExercicesByMuscle } from '../services/api'
  
  function Muscle () {
