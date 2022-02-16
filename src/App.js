@@ -5,6 +5,7 @@ import {
    Route
 } from 'react-router-dom'
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home'
 import Exercices from './pages/Exercices'
 import Auth from './pages/Auth'
@@ -22,19 +23,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <AuthProvider> */}
-        {/* <Header />
-        <Routes>
-          <Route exact path='/auth' element={<Auth/>} />
-          <Route exact path='/exercices' element={<Exercices/>} />
-          <Route exact path='/muscles' element={<Muscles/>} />
-          <Route exact path='/' element={<Home/>} />
-        </Routes> */}
-        {/* </AuthProvider> */}
         <CartProvider>
           <AuthProvider>
             <Header />
-            <Cart />
             <Switch>
               <Route path='/cancel'>
                 <Cancel />
@@ -48,6 +39,9 @@ function App() {
               <Route path='/muscle/:id'>
                 <Muscle />
               </Route>
+              <Route path='/exercices'>
+                <Exercices />
+              </Route>
               <Route path='/auth'>
                 <Auth />
               </Route>
@@ -60,6 +54,7 @@ function App() {
             </Switch>
           </AuthProvider>
         </CartProvider>
+        {/* <Footer /> */}
       </Router>
     </div>
   )

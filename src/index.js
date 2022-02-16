@@ -1,3 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.css'; 
+import 'bootstrap/js/src/popover.js';
+import 'bootstrap/js/dist/dropdown';
+import 'bootstrap/js/dist/popover';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

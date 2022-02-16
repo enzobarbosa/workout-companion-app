@@ -12,7 +12,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import './styles/ExerciceList.css'
 
-function ExercicesListItem ({ submit, exercice }) {
+function WorkoutListItem ({ submit, workout }) {
   const { dispatch } = useCart()
   const [formData, setFormData] = useState({
     series: '',
@@ -20,15 +20,15 @@ function ExercicesListItem ({ submit, exercice }) {
     poids: ''
   })
   const addToCart = () => {
-    const _exercice = {
-    ...exercice,
+    const _workout = {
+    ...workout,
     repetitions: formData.repetitions,
     series: formData.series,
     poids: formData.poids
     }
     dispatch({
     type: actionTypes.ADD_ITEM_TO_CART,
-    data: _exercice
+    data: _workout
     })
     }
 
@@ -73,49 +73,11 @@ function ExercicesListItem ({ submit, exercice }) {
             backgroundColor: "#fafafa",
         }}>
           <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            <h2 className='titre'>{exercice.name}</h2>
-            </Typography>
             <Typography variant="body2">
-            <p className='description'>{exercice.description}</p>
+            <p className='description'>{workout.workout["0"]}</p>
+            <p className='description'>{workout.workout["1"]}</p>
             </Typography>
-            <TextField
-              name="series"
-              id="outlined-number"
-              label="Nombre de séries"
-              type="number"
-              value={formData.series}
-              onChange={handleChange}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-            <TextField
-              name="repetitions"
-              id="outlined-number"
-              label="Nombre de répétitions"
-              type="number"
-              value={formData.repetitions}
-              onChange={handleChange}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-            <TextField
-              name="poids"
-              id="outlined-number"
-              label="Poids en kg"
-              type="number"
-              value={formData.poids}
-              onChange={handleChange}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
           </CardContent>
-          <CardActions>
-            <Button type="submit" size="small" onClick={addToCart}>Ajouter à l'entrainement</Button>
-          </CardActions>
         </Card>
         </ListItem>
         </Grid>
@@ -127,4 +89,4 @@ function ExercicesListItem ({ submit, exercice }) {
   )
 }
 
-export default ExercicesListItem
+export default WorkoutListItem

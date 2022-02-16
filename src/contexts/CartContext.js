@@ -1,9 +1,3 @@
-/**
- * 1) écrire le contexte
- *  - actionTypes : ADD_ITEM_TO_CART / REMOVE_ITEM_FROM_CART
- *  - état initial : cart = array contenant les items
- * 2) brancher le contxte sur les plats et sur le composant Cart
- */
  import React, { useEffect } from 'react'
 
  // Création du contexte
@@ -23,14 +17,18 @@
  }
  
  // const cartItem = {
- //   dish: plat,
+ //   exercice: exercice,
  //   quantity: quantité
  // }
  
  const CartReducer = (state, action) => {
    switch (action.type) {
      case actionTypes.ADD_ITEM_TO_CART:
-       // Si mon élément est déjà présent dans mon panier, j'incrémente la quantité
+       // Si mon élément est déjà présent dans mon entraînement, j'incrémente la quantité
+       let _total=0; 
+       for (let exercice in state.cart){
+           _total += exercice.quantity;
+        }
        if (state.cart.some(item => item.exercice._id === action.data._id)) {
          return {
            ...state,
@@ -44,11 +42,12 @@
                return item
              }
            }),
-           // Calcul du total : si le panier contient des items, on les additionne avec la méthode Array.reduce()
-           // Sinon, on retourne le prix du produit courrant
+           // Calcul du total : si l'entraînement contient des items, on les additionne avec la méthode Array.reduce()
+           // Sinon, on retourne le nombre d'exercices courrant
            total: state.cart.length > 0
-             ? state.cart.reduce((prev, cur) => prev + cur.quantity, action.data.price)
-             : action.data.price
+             ? state.cart.reduce((acc, object) => acc + object.quantity, 1)
+             : 1
+          // total: 0
          }
        } else {
          // On retourne le nouvel état
@@ -59,12 +58,14 @@
            ...state,
            cart: state.cart.concat([{ exercice: action.data, quantity: 1 }]),
            total: state.cart.length > 0
-             ? state.cart.reduce((prev, cur) => prev + cur.quantity, action.data.price)
-             : action.data.price
+           ? state.cart.reduce((acc, object) => acc + object.quantity, 1)
+           : 1
+          // total: 0
          }
        }
  
      case actionTypes.REMOVE_ITEM_FROM_CART:
+       console.log(action.data);
        return {
          ...state,
          cart: state.cart.map(item => {
@@ -78,10 +79,10 @@
            // On retire les éléments ayant une quantité < 1 ou on conserve ceux qui ont une quantité > 0
          }).filter(item => item.quantity > 0),
          total: state.cart.length > 0
-           ? state.cart.reduce((prev, cur) => prev + cur.quantity, -action.data.exercice.price)
-           : 0
+         ? state.cart.reduce((acc, object) => acc + object.quantity, -1)
+         : action.data.quantity
+        // total: 0
        }
-       // state.cart.filter(item => item.dish._id !== action.data.dish._id)
      default:
        throw new Error(`Unhandled action type : ${action.type}`)
    }

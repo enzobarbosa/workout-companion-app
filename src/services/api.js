@@ -44,6 +44,33 @@ const getMuscles = async () => {
   }
 }
 
+const getMuscle = async (muscleId) => {
+  try {
+    const response = await api.get(`/muscle?id=${muscleId}`)
+    return response.data
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const getWorkouts = async () => {
+  try {
+    const response = await api.get('/workouts')
+    return response.data
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const getExercices = async () => {
+  try {
+    const response = await api.get('/exercices')
+    return response.data
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 const getExercicesByMuscle = async (muscleId) => {
   try {
     const response = await api.get(`/exercices?id=${muscleId}`)
@@ -80,6 +107,9 @@ const createWorkout = async (user, cart) => {
 
 export {
   getMuscles,
+  getMuscle,
+  getWorkouts,
+  getExercices,
   getExercicesByMuscle,
   getProfile,
   login,

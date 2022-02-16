@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react'
 import LoginForm from '../components/LoginForm'
 import RegisterForm from '../components/RegisterForm'
 import UserInfos from '../components/UserInfos'
-
 import { getProfile, register } from '../services/api'
-
 import { actionTypes, loginUser, useAuth } from '../contexts/AuthContext'
+import { Button } from '@mui/material'
 
 // Composant sous forme de fonction
 // Nouvelle méthode
@@ -71,7 +70,7 @@ function Auth () {
             </a>
           </div>
           )}
-      <button onClick={handleLoadProfile}>Load Profile</button>
+      <Button color='primary' variant='contained' onClick={handleLoadProfile}>Voir mes informations</Button>
       <p>{profil && JSON.stringify(profil)}</p>
     </div>
   )

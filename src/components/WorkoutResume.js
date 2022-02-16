@@ -1,3 +1,5 @@
+import './styles/WorkoutResume.css';
+
 function WorkoutResume ({ cart, total }) {
   return (
     <div>
@@ -6,6 +8,9 @@ function WorkoutResume ({ cart, total }) {
         <thead>
           <th>Exercices</th>
           <th>Quantité</th>
+          <th>Séries</th>
+          <th>Répétitions</th>
+          <th>Poids</th>
         </thead>
         <tbody>
           {
@@ -14,6 +19,9 @@ function WorkoutResume ({ cart, total }) {
                     <tr key={item.exercice.id}>
                       <td>{item.exercice.name}</td>
                       <td>{item.quantity}</td>
+                      <td>{item.exercice.series}</td>
+                      <td>{item.exercice.repetitions}</td>
+                      <td>{item.exercice.poids}kg</td>
                     </tr>
                   )
                 })
@@ -21,7 +29,7 @@ function WorkoutResume ({ cart, total }) {
         </tbody>
         <tfoot>
           <td>Total :</td>
-          <td>{total}€</td>
+          <td>{total} exercices</td>
         </tfoot>
       </table>
     </div>

@@ -1,9 +1,9 @@
-// Composer le formulaire d'inscription
-// Lier le state local du composant sur les champs
-// Créer la métode submit qui console log les champs
-
 import { useState } from 'react'
-import TextInput from './TextInput'
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { Grid, Paper, Avatar } from '@mui/material/';
+import TextField from '@mui/material/TextField';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 function RegisterForm ({ submit, error }) {
   // Stockage des données du formulaire
@@ -30,45 +30,76 @@ function RegisterForm ({ submit, error }) {
     submit(formData)
   }
 
+  const paperStyle={padding:20, height: '75vh', width: 280, margin:"20px auto"}
+  const avatarStyle={backgroundColor:'red'}
+  const fieldStyle={margin: "5px"}
+
   return (
-    <div class='container'>
-      <h2>S'inscrire</h2>
-      <form onSubmit={handleSubmit}>
-        <TextInput
-          name='firstName'
-          label='Prénom'
-          value={formData.firstName}
-          onChange={handleChange}
-        />
-        <TextInput
-          name='lastName'
-          label='Nom'
-          value={formData.lastName}
-          onChange={handleChange}
-        />
-        <TextInput
-          type='email'
-          name='email'
-          label='Email'
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <TextInput
-          type='password'
-          name='password'
-          label='Mot de passe'
-          value={formData.password}
-          onChange={handleChange}
-        />
-        <TextInput
-          name='phone'
-          label='Téléphone'
-          value={formData.phone}
-          onChange={handleChange}
-        />
-        <input type='submit' value="S'enregistrer" />
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <Grid>
+        <Paper elevation={10} style={paperStyle}>
+          <Grid align="center">
+            <Avatar style={avatarStyle}>
+              <LockOutlinedIcon/>
+            </Avatar>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+              <h2>S'inscrire</h2>
+            </Typography>
+          </Grid>
+          <TextField
+            name="firstName"
+            label="Prénom"
+            placeholder='Entrez votre prénom'
+            type="text"
+            value={formData.firstName}
+            onChange={handleChange}
+            variant="standard"
+            style={fieldStyle}
+          />
+          <TextField
+            name="lastName"
+            label="Nom"
+            placeholder='Entrez votre nom'
+            type="text"
+            value={formData.lastName}
+            onChange={handleChange}
+            variant="standard"
+            style={fieldStyle}
+          />
+          <TextField
+            name="email"
+            label="Email"
+            placeholder='Entrez votre email'
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            variant="standard"
+            style={fieldStyle}
+          />
+          <TextField
+            name="password"
+            label="Mot de passe"
+            placeholder='Votre mot de passe'
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+            variant="standard"
+            style={fieldStyle}
+          />
+          <TextField
+            name="phone"
+            label="Téléphone"
+            placeholder='Entrez votre téléphone'
+            type="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            variant="standard"
+            style={fieldStyle}
+          />
+          <Button type='submit' color='primary' variant='contained' fullWidth>S'inscrire</Button>
+        </Paper>
+      </Grid>
+    </form>
   )
 }
 

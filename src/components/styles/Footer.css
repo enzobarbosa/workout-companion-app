@@ -1,0 +1,10 @@
+.footer-container {
+    /* position: fixed; si activé => contenu de page sous le header */
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333333;
+  }

@@ -7,6 +7,7 @@
  function Muscle () {
    const [exercices, setExercices] = useState([])
    const { id } = useParams()
+
  
    const getData = async () => {
      // Appel de la fonction de api.js
@@ -18,7 +19,6 @@
    useEffect(() => {
      getData()
    }, [])
- 
    return (
      <div>
        <h1>MUSCLE: {id}</h1>
